@@ -30,7 +30,7 @@
 
 			<div class="card-panel border-radius-6 z-depth-0 bg-opacity-2 white col s8 m6 l12 offset-s2 offset-m3 pb-5">
 
-				<div class="card-content form">
+				<div class="card-content">
 
 					<div id="boas-vindas" class="vertical-align no-padding flex flex-center mb-10">
 						<button type="button" id="btn-back" class="btn btn-small btn-floating z-depth-0 transparent" disabled="disabled">
@@ -52,9 +52,9 @@
 							</div>
 						</div>
 
-						<div id="input-pass" class="animated fast">
+						<div id="inputpass" class="animated fast">
 							<div class="input-field">
-								<input type="password" name="senha" id="senha" disabled="disabled" minlength="5">
+								<input type="password" name="senha" id="senha" minlength="5">
 								<label for="pass" class="active">
 									Senha
 								</label>

@@ -11,4 +11,4 @@
 <link href="<?php echo e(asset('css/style.css')); ?>" rel="stylesheet">
 <link href="<?php echo e(asset('css/admin.css')); ?>" rel="stylesheet">
 <link href="<?php echo e(asset('css/logo.css')); ?>" rel="stylesheet">
-<?php /**PATH /home/alissonp/www/transvida/application/resources/views/styles.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/alissonp/www/new_frontend/application/resources/views/styles.blade.php ENDPATH**/ ?>

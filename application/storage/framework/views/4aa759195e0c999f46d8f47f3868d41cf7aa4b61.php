@@ -16,4 +16,4 @@
 <link rel="stylesheet" media="screen" href="<?php echo e(asset('css/admin.css')); ?>">
 <link rel="stylesheet" media="screen" href="<?php echo e(asset('css/calendar.css')); ?>">
 <link rel="stylesheet" media="screen" href="<?php echo e(asset('css/logo.css')); ?>">
-<?php /**PATH /home/alissonp/www/transvida/application/resources/views/clinica/styles.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/alissonp/www/new_frontend/application/resources/views/clinica/styles.blade.php ENDPATH**/ ?>

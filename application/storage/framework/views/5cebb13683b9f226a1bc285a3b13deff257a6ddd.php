@@ -21,14 +21,8 @@
 <script src="<?php echo e(asset('assets/plugins/requirejs/require.js')); ?>"></script>
 
 <!-- scripts | Padrão -->
-<script src="<?php echo e(asset('assets/scripts/materializecss.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/materializecss-select.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/datatables.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/storage.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/functions.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/http/http.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/http/request.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/form.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/core.js')); ?>"></script>
-<script src="<?php echo e(asset('assets/scripts/banner.js')); ?>"></script>
-<?php /**PATH /home/alissonp/www/transvida/application/resources/views/authentication/scripts.blade.php ENDPATH**/ ?>
+<script src="<?php echo e(asset('js/core.js')); ?>"></script>
+
+
+
+<?php /**PATH /home/alissonp/www/new_frontend/application/resources/views/scripts.blade.php ENDPATH**/ ?>

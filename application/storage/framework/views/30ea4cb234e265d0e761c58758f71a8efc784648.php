@@ -56,4 +56,4 @@
 		</div>
 	</header>
 <?php endif; ?>
-<?php /**PATH /home/alissonp/www/transvida/application/resources/views/clinica/header.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/alissonp/www/new_frontend/application/resources/views/clinica/header.blade.php ENDPATH**/ ?>
