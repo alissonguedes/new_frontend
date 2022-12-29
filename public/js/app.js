@@ -15,6 +15,8 @@ window.onload = () => {
 		load_scripts();
 	});
 
+	$('.progress, #loading').hide();
+
 }
 
 class App {

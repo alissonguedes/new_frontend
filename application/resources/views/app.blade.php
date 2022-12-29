@@ -26,6 +26,8 @@
 			<div class="indeterminate blue accent-1"></div>
 		</div>
 
+		<div id="loading"></div>
+
 		@yield('body')
 
 		<script>

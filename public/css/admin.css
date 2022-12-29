@@ -5,18 +5,6 @@
 	left: 0;
 }
 
-.container>.progress,
-.progress {
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: 0;
-	display: none;
-	height: 4px;
-	z-index: 999999;
-	/* background-color: transparent; */
-}
-
 #frm-login *:not(.material-icons) {
 	font-family: 'Montserrat' !important;
 }

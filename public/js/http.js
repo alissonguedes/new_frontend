@@ -105,7 +105,7 @@ class Http {
 
 		xhr.onloadstart = function(e) {
 
-			$('.progress').show();
+			$('.progress, #loading').show();
 
 		}
 
@@ -122,7 +122,7 @@ class Http {
 				}
 
 				new App();
-				$('.progress').hide();
+				$('.progress, #loading').hide();
 				load_scripts();
 
 			}
