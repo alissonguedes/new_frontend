@@ -18,17 +18,17 @@
 		</div>
 	</div>
 
-	<div class="loginform padding-3 col s12 m12 l4 white h-100vh z-depth-5">
+	<div class="login-form padding-3 col s12 m12 l4 white h-100vh z-depth-5">
 
 		<div id="client-logo">
 			<img src="<?php echo e(asset('img/site/logo/logo.png')); ?>" alt="" class="responsive-img">
 		</div>
 
-		<form novalidate="" id="frm-login" class="" action="<?php echo e(route('account.auth.login')); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+		<form novalidate="" id="frm-login" class="" action="<?php echo e(route('account.auth.login')); ?>" method="post" enctype="multipart/form-data" autocomplete="off" data-autoinitialize="false">
 
 			<div class="card-panel border-radius-6 z-depth-0 bg-opacity-2 white col s8 m6 l12 offset-s2 offset-m3 pb-5">
 
-				<div class="card-content form">
+				<div class="card-content">
 
 					<div id="boas-vindas" class="vertical-align no-padding flex flex-center mb-10">
 						<button type="button" id="btn-back" class="btn btn-small btn-floating z-depth-0 transparent" disabled="disabled">
@@ -41,7 +41,7 @@
 
 					<div class="inputs">
 
-						<div id="inputlogin" class="animated fast">
+						<div id="input-login" class="animated">
 							<div class="input-field">
 								<input type="email" name="login" id="login" autofocus="autofocus">
 								<label for="login" class="">
@@ -50,9 +50,9 @@
 							</div>
 						</div>
 
-						<div id="inputpass" class="animated fast">
+						<div id="input-pass" class="animated">
 							<div class="input-field">
-								<input type="password" name="senha" id="senha"  minlength="5">
+								<input type="password" name="senha" id="senha" disabled="disabled" minlength="5">
 								<label for="pass" class="active">
 									Senha
 								</label>
@@ -68,8 +68,6 @@
 						<i class="material-icons margin-right">input</i>
 					</button>
 
-					<?php echo csrf_field(); ?>
-
 				</div>
 
 			</div>
@@ -77,6 +75,7 @@
 			<input type="hidden" name="acao" value="login">
 			<input type="hidden" name="url" id="url" value="<?php echo e($_COOKIE['url']); ?>">
 			<input type="hidden" name="_method" value="post">
+			<?php echo csrf_field(); ?>
 
 		</form>
 

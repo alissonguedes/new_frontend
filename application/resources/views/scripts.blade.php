@@ -22,7 +22,7 @@
 <script src="{{ asset('assets/plugins/requirejs/require.js') }}"></script>
 
 <!-- scripts | Padrão -->
-<script src="{{ asset('js/core.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 
 {{-- <script src="{{ asset('assets/scripts/core.js') }}"></script> --}}
 {{-- <script src="{{ asset('assets/scripts/materializecss.js') }}"></script>

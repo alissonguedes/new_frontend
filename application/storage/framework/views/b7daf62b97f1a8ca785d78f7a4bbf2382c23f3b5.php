@@ -1,5 +1,5 @@
 <div class="row">
-	<div id="agendamento" class="form-sidenav card col s8 no-padding" data-dismissible="true" data-edge="right" data-backdrop="false" style="height: calc(100vh - 64px); overflow: hidden;">
+	<div id="agendamento" class="form-sidenav card col s8 no-padding" data-dismissible="true" data-edge="right" data-backdrop="false">
 
 		<form action="<?php echo e(route('clinica.agendamentos.post')); ?>" method="post" enctype="multipart/form-data" autocomplete="random-string" novalidate>
 

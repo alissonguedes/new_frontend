@@ -2,21 +2,30 @@
 
 class Scroller {
 
-	constructor($scroller) {
+	constructor(scroller) {
 
-		var $scroller = typeof element !== 'undefined' ? element : '.scroller';
+		var scroller = typeof scroller !== 'undefined' ? scroller : '.scroller';
 
-		if (0 < $($scroller).length) new PerfectScrollbar($scroller, {
-			theme: "dark",
-			'wheelPropagation': false,
-			'suppressScrollY': typeof $($scroller).data('hide-y') !== 'undefined' && $($scroller).data('hide-y') != '' ? $($scroller).data('hide-y') : false,
-			'suppressScrollX': typeof $($scroller).data('hide-x') !== 'undefined' && $($scroller).data('hide-x') != '' ? $($scroller).data('hide-x') : false
+		$('body').find(scroller).each(function() {
+
+			var c = '.' + $(this).attr('class').replace(/\s/g, '.');
+			var suppressScrollX = (typeof $(this).data('hide-x') !== 'undefined' && $(this).data('hide-x') === true);
+			var suppressScrollY = (typeof $(this).data('hide-y') !== 'undefined' && $(this).data('hide-y') === true);
+			var wheelPropagation = (typeof $(this).data('propagation') !== 'undefined' && $(this).data('propagation') === true);
+
+			new PerfectScrollbar(c, {
+				theme: "dark",
+				'wheelPropagation': wheelPropagation,
+				'suppressScrollX': suppressScrollX,
+				'suppressScrollY': suppressScrollY
+			});
+
 		});
 
 	}
 
 	init() {
-		alert('initialize scroller');
+		console.log('initialize scroller');
 	}
 
 }

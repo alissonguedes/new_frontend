@@ -22,9 +22,9 @@
 
 	<div id="page">
 
-		<div class="progress" style="display: block !important;">
+		<div class="progress">
+			<div class="indeterminate blue accent-1"></div>
 			
-			<div class="determinate blue accent-1"></div>
 		</div>
 
 		<?php echo $__env->yieldContent('body'); ?>

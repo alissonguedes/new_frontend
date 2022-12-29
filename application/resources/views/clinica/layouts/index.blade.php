@@ -5,7 +5,7 @@
 <div class="topbar flex flex-center">
 	<div class="topbar-fixed topbar-color flex flex-auto z-depth-1">
 		<div class="flex flex-auto flex-center">
-			<div class="flex flex-auto flex-start flex-center" style="">
+			<div class="flex flex-auto flex-start flex-center">
 				<button class="dropdown-trigger btn white black-text z-depth-3 border-round" data-target="dropdown-actions">
 					<i class="material-icons checkbox">check_box</i>
 					<i class="material-icons">keyboard_arrow_down</i>

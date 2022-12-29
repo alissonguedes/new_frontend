@@ -53,7 +53,7 @@ small {
 /** Perfect Scrollbar */
 .ps__rail-y,
 .ps__rail-x {
-	z-index: 999;
+	z-index: 995;
 }
 
 /** Select **/
@@ -217,16 +217,16 @@ small {
 
 @media only screen and (min-width: 993px) {
 	#toast-container {
-		/* bottom: 2.5%;
+		bottom: 2.5%;
 		left: 1.3%;
 		top: auto;
 		right: auto;
-		max-width: 86%; */
-		bottom: 2.5%;
+		max-width: 86%;
+		/* bottom: 2.5%;
 		left: 35%;
 		top: auto;
 		right: 35%;
-		max-width: 100%;
+		max-width: 100%; */
 	}
 }
 

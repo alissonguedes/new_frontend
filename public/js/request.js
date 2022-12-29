@@ -1,16 +1,21 @@
 'use strict';
 
+var http = new Http();
+
 class Request {
 
 	link = [
+		'a',
 		'[href]',
 		'[data-href]',
 		'.link'
 	];
 
-	constructor() {
+	constructor(element) {
 
-		this.createElement();
+		var element = typeof element !== 'undefined' ? element : 'body';
+
+		this.createElement(element);
 
 	}
 
@@ -29,18 +34,19 @@ class Request {
 	createElement(el) {
 
 		var self = this;
-		var links = typeof el !== 'undefined' ? el : this.link.toString();
+		var links = this.link.toString(); // typeof el !== 'undefined' ? el : this.link.toString();
 
-		$('body').find(links).on('click', function(e) {
+		$(el).find(links).on('click', function(e) {
 
 			e.preventDefault();
 
-			var http = new Http();
 			var href = $(this).data('href') || $(this).attr('href');
 
 			// self.disableOnClick($(this));
 			if (self.isLink(href)) {
-				http.get(href);
+				http.get(href, null, (response) => {
+					// load_scripts();
+				});
 			}
 			// self.enableOnClick($(this));
 

@@ -121,11 +121,20 @@ namespace App\Http\Controllers\Clinica{
 			$id = $request->id;
 			$this->paciente_model->editaPaciente($request, $id);
 
+			$status = 'success';
+			$url    = url()->route('clinica.pacientes.index');
+			$type   = 'send';
+
 			if (request()->ajax()) {
-				return response()->json(['message' => 'Dados atualizados com sucesso!']);
+
+				return response()->json([
+					'status'  => $status,
+					'message' => 'Dados atualizados com sucesso!',
+					'type'    => $type,
+					'url'     => $url,
+				]);
 			} else {
-				return redirect()
-					->route('clinica.pacientes.index')
+				return redirect($url)
 					->with([
 						'status'  => 'success',
 						'message' => 'Dados atualizados com sucesso',

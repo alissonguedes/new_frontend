@@ -70,11 +70,12 @@ namespace App\Models{
 
 				if (!isset($user)) {
 
-					$data['status']  = 401;
-					$statusCode      = 401;
-					$data['message'] = 'Usuário inválido';
-					$data['data']    = null;
-					$data['errors']  = ['login' => 'Usuário inativo ou removido.'];
+					$statusCode         = 401;
+					$data['status']     = 401;
+					$data['statusCode'] = $statusCode;
+					$data['message']    = 'Usuário inválido';
+					$data['data']       = null;
+					$data['errors']     = ['login' => 'Usuário inativo ou removido.'];
 					Session::forget('userlogin');
 
 				} else {
@@ -152,13 +153,15 @@ namespace App\Models{
 
 					if (!isset($modulo)) {
 
-						$data['status']  = 401;
-						$statusCode      = 401;
-						$data['message'] = 'Por favor, atualize a página para acessar este módulo.';
-						$data['data']    = null;
+						$statusCode         = 401;
+						$data['status']     = 401;
+						$data['statusCode'] = $statusCode;
+						$data['message']    = 'Por favor, atualize a página para acessar este módulo.';
+						$data['data']       = null;
 						// $data['errors']  = ['login' => 'Por favor, atualize a página.'];
 
 						return response($data, $statusCode);
+
 					}
 
 					if ($session_exists) {
@@ -198,9 +201,11 @@ namespace App\Models{
 						'user_agent' => $user_agent,
 					]);
 
+					$statusCode           = 201;
 					$data['data']['user'] = Session::get('userlogin')['nome'];
-					$data['status']       = 200;
 					$data['message']      = 'Usuário válido';
+					$data['status']       = 'success';
+					$data['statusCode']   = $statusCode;
 
 				}
 
@@ -254,21 +259,22 @@ namespace App\Models{
 					Session::put('userdata', $session);
 					Session::put('app_session', $token);
 
-					$data['status']        = 'success';
 					$data['url']           = $request->url;
+					$data['message']       = 'Usuário logado com sucesso!';
 					$data['data']['user']  = Session::get('userdata')[$token]['nome'];
 					$data['data']['token'] = Session::get('app_session');
-
-					$statusCode = 200;
+					$data['status']        = 'success';
+					$data['statusCode']    = $statusCode;
+					$statusCode            = 200;
 
 				} else {
 
-					$data['status']  = 'error';
-					$data['message'] = 'Usuário inválido';
-					$data['data']    = null;
-					$data['errors']  = ['senha' => 'senha inválida'];
-
-					$statusCode = 401;
+					$statusCode         = 401;
+					$data['message']    = 'Usuário inválido';
+					$data['data']       = null;
+					$data['errors']     = ['senha' => 'senha inválida'];
+					$data['status']     = 'error';
+					$data['statusCode'] = $statusCode;
 
 				}
 

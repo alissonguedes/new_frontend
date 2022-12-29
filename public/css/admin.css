@@ -422,7 +422,10 @@
 	margin: 0;
 	will-change: top, left, right, bottom;
 	overflow-x: hidden;
+	height: calc(100vh - 64px);
+	z-index: 997;
 }
+
 
 .form-sidenav.open {
 	transform: translateX(0%);

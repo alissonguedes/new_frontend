@@ -1,16 +1,16 @@
-'use strict';
+// 'use strict';
 
-window.onload = () => {
+// window.onload = () => {
 
-	window.addEventListener('popstate', function() {
+// 	window.addEventListener('popstate', function() {
 
-		var http = new Http;
-		http.get(window.location.href);
+// 		var http = new Http;
+// 		http.get(window.location.href);
 
-	}, true);
+// 	}, true);
 
-	require([BASE_PATH + 'js/app.js'], function() {
-		new App();
-	});
+// 	require([BASE_PATH + 'js/app.js'], function() {
+// 		new App();
+// 	});
 
-}
+// }

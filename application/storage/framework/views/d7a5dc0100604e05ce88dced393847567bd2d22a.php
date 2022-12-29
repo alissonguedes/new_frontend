@@ -21,7 +21,7 @@
 <script src="<?php echo e(asset('assets/plugins/requirejs/require.js')); ?>"></script>
 
 <!-- scripts | Padrão -->
-<script src="<?php echo e(asset('js/core.js')); ?>"></script>
+<script src="<?php echo e(asset('js/app.js')); ?>"></script>
 
 
 
