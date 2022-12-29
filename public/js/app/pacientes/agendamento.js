@@ -6,6 +6,8 @@ var formSidenav = () => {
 
 	$('.form-sidenav-trigger').on('click', function() {
 
+		$('.progress, #loading').show();
+
 		var link = typeof $(this).data('link') !== 'undefined' && $(this).data('link') != '' ? $(this).data('link') : null;
 		var target = typeof $(this).data('target') !== 'undefined' && $(this).data('target') != '' ? $(this).data('target') : null;
 		var name = typeof $(this).attr('name') !== 'undefined' ? $(this).attr('name') : null;
@@ -37,6 +39,7 @@ var formSidenav = () => {
 				});
 				modal.find('.modal-close').click();
 				alert(errors, errors.status);
+				$('.progress, #loading').hide();
 				return false;
 			}
 
@@ -71,6 +74,7 @@ var formSidenav = () => {
 
 			new Request(modal);
 			new Scroller();
+			$('.progress, #loading').hide();
 
 		});
 
