@@ -39,14 +39,15 @@ class Request {
 		$(el).find(links).on('click', function(e) {
 
 			e.preventDefault();
-			$('.progress, #loading').show();
 
 			var href = $(this).data('href') || $(this).attr('href');
 
 			// self.disableOnClick($(this));
 			if (self.isLink(href)) {
+				$('.progress, #loading').show();
 				http.get(href, null, (response) => {
 					// load_scripts();
+					console.log(response);
 					$('.progress, #loading').hide();
 				});
 			}
