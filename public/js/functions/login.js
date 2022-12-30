@@ -7,12 +7,26 @@ var login = () => {
 	$('#frm-login').on('submit', function(e) {
 
 		e.preventDefault();
+		$('.progress, #loading').hide();
 
 		var form = new Form();
+		var self = $(this);
+		var method = self.attr('method') || 'post';
+		var action = self.attr('action') || null;
+		var btn_submit = self.find(':submit');
 
-		form.submit($(this),
+		self.ajaxSubmit({
+			method: method,
+			action: action,
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			beforeSend: (e) => {
+				btn_submit.attr('disabled', true);
+			},
+			success: (response) => {
 
-			(response) => {
+				var response = typeof response === 'string' ? JSON.parse(response) : response;
 
 				let status = response.statusCode;
 				titulo = 'Olá, ' + response.data.user + ', seja bem-vindo!';
@@ -20,7 +34,7 @@ var login = () => {
 				if (status === 201) {
 
 					if (response.message) {
-						form.showMessages($(this), response.message, response.status);
+						form.showMessages(self, response.message, response.status);
 					}
 
 					$('#boas-vindas')
@@ -48,6 +62,7 @@ var login = () => {
 					setTimeout(function() {
 						$('#input-pass').find('[name="senha"]')
 							.focus()
+						self.find(':submit').attr('disabled', false)
 					}, 700);
 
 					$('#relembrar_login')
@@ -57,21 +72,28 @@ var login = () => {
 						.css('display', 'flex')
 						.attr('disabled', false);
 
-					$(this).find(':submit').attr('disabled', false)
-
 				} else {
 
 					if (response.message) {
-						form.showMessages($(this), response.message, response.status);
+						form.showMessages(self, response.message, response.status);
 					}
 
 					http.get(response.url);
 
 				}
 
-			}
+			},
+			error: (error) => {
 
-		);
+				var errors = error.responseJSON;
+				form.clearErrors(self);
+				form.showErrors(self, errors, 'error');
+
+				$('.progress, #loading').hide();
+				btn_submit.attr('disabled', false);
+
+			}
+		});
 
 	});
 

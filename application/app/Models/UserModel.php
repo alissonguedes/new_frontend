@@ -81,8 +81,31 @@ namespace App\Models{
 				} else {
 
 					$modulo_path = request()->url;
-					$path        = explode('/', $modulo_path);
-					$path        = '/' . end($path);
+
+					$path   = explode(url('/'), $modulo_path);
+					$modulo = $path;
+
+					if (count($path) > 0) {
+						foreach ($path as $ind => $val) {
+							if (!empty($path[$ind])) {
+								$modulo = $path[$ind];
+								break;
+							}
+						}
+					}
+
+					$path = explode('/', $modulo);
+
+					if (count($path) > 0) {
+						foreach ($path as $ind => $val) {
+							if (!empty($path[$ind])) {
+								$modulo = $path[$ind];
+								break;
+							}
+						}
+					}
+
+					$path = '/' . ($modulo);
 
 					/*
 					 * Se o usuário não for do grupo "Super Administrador",

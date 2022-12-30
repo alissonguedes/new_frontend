@@ -60,6 +60,7 @@ class Form {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			},
 			beforeSend: (e) => {
+				progress('in')
 				btn_submit.attr('disabled', true);
 			},
 			success: (response) => {
@@ -89,7 +90,10 @@ class Form {
 						this.showMessages(form, response.message, response.status);
 					}
 
-					http.get(response.url);
+					http.get(response.url, null, (response) => {
+						progress('out')
+					});
+
 
 				}
 
@@ -100,6 +104,7 @@ class Form {
 				this.clearErrors(form);
 				self.showErrors(form, errors, 'error');
 
+				$('.progress, #loading').hide();
 				btn_submit.attr('disabled', false);
 
 			}

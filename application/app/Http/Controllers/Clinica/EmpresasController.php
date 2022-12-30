@@ -72,7 +72,7 @@ namespace App\Http\Controllers\Clinica{
 		{
 
 			$especialidades = [];
-			$dados          = $this->especialidade_model->getEspecialidades();
+			$dados          = $this->especialidade_model->searchEspecialidades($request);
 
 			foreach ($dados as $especialidade) {
 				$especialidades[] = [

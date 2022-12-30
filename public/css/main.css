@@ -48,10 +48,8 @@ small {
 	left: 0;
 	right: 0;
 	margin: 0;
-	display: none;
 	height: 4px;
 	z-index: 999999999;
-	/* background-color: transparent; */
 }
 
 #loading {
@@ -65,7 +63,7 @@ small {
 	place-content: center;
 	background-color: rgba(255, 255, 255, 0.8);
 	z-index: 999999998;
-	transition: 1000ms;
+	transition: 200ms;
 }
 
 #loading:after {

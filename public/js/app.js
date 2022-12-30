@@ -15,7 +15,9 @@ window.onload = () => {
 		load_scripts();
 	});
 
-	$('.progress, #loading').hide();
+	require([BASE_PATH + 'js/functions/progress.js'], function() {
+		progress('out');
+	});
 
 }
 
@@ -30,6 +32,8 @@ class App {
 			BASE_PATH + 'js/menu.js',
 			BASE_PATH + 'js/form.js',
 			BASE_PATH + 'js/materialize.js',
+			BASE_PATH + 'js/functions/autocomplete.js',
+			BASE_PATH + 'js/functions/progress.js',
 			BASE_PATH + 'js/functions/alert.js',
 			BASE_PATH + 'js/functions/view.js',
 			BASE_PATH + 'js/functions/json.js',

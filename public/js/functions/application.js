@@ -1,6 +1,6 @@
 function load_scripts() {
 
-	console.log('Carregando scripts...');
+	// console.log('Carregando scripts...');
 	$.ajax({
 		url: BASE_URL + 'api/js',
 		datatype: 'json',
@@ -15,7 +15,7 @@ function load_scripts() {
 				for (var i of files) {
 
 					$.getScript(i.path).done(() => {
-						console.log('Scripts carregados.')
+						// console.log('Scripts carregados.')
 					});
 
 				}

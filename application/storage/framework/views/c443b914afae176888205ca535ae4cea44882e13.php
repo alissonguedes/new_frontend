@@ -4,14 +4,13 @@
 
 	<div class="col m8 l8 hide-on-med-and-down gradient-45deg-light-blue-cyan h-100vh">
 		<div class="logo">
-			
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col s12">
-					<div class="text-logo white-text">
-						<h5>Clinic</h5>
-						<h2>Cloud</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<div class="text-logo white-text">
+							<h5>Clinic</h5>
+							<h2>Cloud</h2>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -72,8 +71,15 @@
 
 			</div>
 
+			<?php
+				if(session('url'))
+				$url = session('url');
+				else
+				$url = session()->get('curl');
+			?>
+
 			<input type="hidden" name="acao" value="login">
-			<input type="hidden" name="url" id="url" value="<?php echo e($_COOKIE['url']); ?>">
+			<input type="hidden" name="url" id="url" value="<?php echo e(url($url )); ?>">
 			<input type="hidden" name="_method" value="post">
 			<?php echo csrf_field(); ?>
 

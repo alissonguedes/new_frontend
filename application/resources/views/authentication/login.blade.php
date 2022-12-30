@@ -94,14 +94,13 @@
 
 	<div class="col m8 l8 hide-on-med-and-down gradient-45deg-light-blue-cyan h-100vh">
 		<div class="logo">
-			{{-- <img src="http://localhost/embaixada/public/assets/tacticweb/img/logotw.png" class="img_cem"> --}}
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col s12">
-					<div class="text-logo white-text">
-						<h5>Clinic</h5>
-						<h2>Cloud</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col s12">
+						<div class="text-logo white-text">
+							<h5>Clinic</h5>
+							<h2>Cloud</h2>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -162,8 +161,15 @@
 
 			</div>
 
+			@php
+				if(session('url'))
+				$url = session('url');
+				else
+				$url = session()->get('curl');
+			@endphp
+
 			<input type="hidden" name="acao" value="login">
-			<input type="hidden" name="url" id="url" value="{{ $_COOKIE['url'] }}">
+			<input type="hidden" name="url" id="url" value="{{ url($url ) }}">
 			<input type="hidden" name="_method" value="post">
 			@csrf
 

@@ -44,11 +44,8 @@ class Request {
 
 			// self.disableOnClick($(this));
 			if (self.isLink(href)) {
-				$('.progress, #loading').show();
 				http.get(href, null, (response) => {
-					// load_scripts();
-					console.log(response);
-					$('.progress, #loading').hide();
+					// console.log(response);
 				});
 			}
 			// self.enableOnClick($(this));

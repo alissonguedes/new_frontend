@@ -35,17 +35,22 @@ class Http {
 					'X-CSRF-TOKEN': $('meta[name="csrf-token]').attr('content'),
 					'Request-Type': 'ajax'
 				},
+				beforeSend: () => {
+					progress('in');
+				},
 				success: (response) => {
 					for (var i in callback) {
 						if (typeof callback[i] === 'function') {
 							callback[i](response);
 						}
 					}
+					progress('out');
 				},
 				error: (error) => {
 
-					console.log(error);
+					progress('out', 0);
 
+					console.log(error);
 					alert('Não foi possível continuar. Erro: ' + error);
 
 				}
@@ -105,7 +110,7 @@ class Http {
 
 		xhr.onloadstart = function(e) {
 
-			$('.progress, #loading').show();
+			progress('in');
 
 		}
 
@@ -122,8 +127,8 @@ class Http {
 				}
 
 				new App();
-				$('.progress, #loading').hide();
 				load_scripts();
+				progress('out');
 
 			}
 

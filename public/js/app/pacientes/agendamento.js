@@ -1,12 +1,12 @@
 'use strict';
 
-var formSidenav = () => {
+var http = new Http();
 
-	var http = new Http();
+var formSidenav = () => {
 
 	$('.form-sidenav-trigger').on('click', function() {
 
-		$('.progress, #loading').show();
+		progress('in')
 
 		var link = typeof $(this).data('link') !== 'undefined' && $(this).data('link') != '' ? $(this).data('link') : null;
 		var target = typeof $(this).data('target') !== 'undefined' && $(this).data('target') != '' ? $(this).data('target') : null;
@@ -39,7 +39,7 @@ var formSidenav = () => {
 				});
 				modal.find('.modal-close').click();
 				alert(errors, errors.status);
-				$('.progress, #loading').hide();
+				progress('out')
 				return false;
 			}
 
@@ -72,9 +72,21 @@ var formSidenav = () => {
 				}
 			});
 
+			inputAutocomplete($('#especialidade'), (response) => {
+				// $(':input[name="localidade"]').attr('disabled', true);
+				// $.ajax({
+				// 	'url': 'teste',
+				// 	success: (response) => {
+				// 	}
+				// })
+			});
+
+			inputAutocomplete($(':input[name="localidade"]'));
+			inputAutocomplete($(':input[name="medico"]'));
+
 			new Request(modal);
 			new Scroller();
-			$('.progress, #loading').hide();
+			progress('out');
 
 		});
 
